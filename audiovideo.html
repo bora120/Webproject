@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>김가연이 좋아하는 노래를 들어보자</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="v.jpg" alt="V 사진" />
+
+    <div class="info-box">
+      <strong>다른 이름:</strong> 김태형, V<br />
+      <strong>출생:</strong> 1995.12.30. (염소자리, 돼지띠)<br />
+      <strong>나이:</strong> 29세<br />
+      <strong>소속 그룹:</strong> 방탄소년단<br />
+      <strong>소속사:</strong> 빅히트 뮤직
+    </div>
+
+    <h2>'Le Jazz de V'</h2>
+
+    <video id="video" width="700" controls muted>
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+
+    <audio id="audio" controls>
+      <source src="audio.mp3" type="audio/mp3" />
+    </audio>
+
+    <p class="comment">동영상 소리는 꺼져 있고 오디오만 재생됩니다.</p>
+    <p>
+      <a
+        href="https://youtu.be/SUNnMsq8OKU?si=lQlRcKxD6Xw_PJ0Y"
+        target="_blank"
+      >
+        ▶ 유튜브에서 보기
+      </a>
+    </p>
+
+    <script>
+      const video = document.getElementById('video')
+      const audio = document.getElementById('audio')
+
+      video.addEventListener('play', () => {
+        audio.currentTime = video.currentTime
+        audio.play()
+      })
+
+      video.addEventListener('pause', () => {
+        audio.pause()
+      })
+
+      video.addEventListener('seeked', () => {
+        audio.currentTime = video.currentTime
+      })
+    </script>
+  </body>
+</html>
